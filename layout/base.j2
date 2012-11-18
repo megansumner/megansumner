@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<!--[if lt IE 9]> <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+
+  <!-- Page Info -->
+  <title>{% block title %}{{ resource.meta.title }}{% endblock %}</title>
+  <meta name="description" content="{{ resource.meta.description }}">
+  <meta name="author" content="{{ resource.meta.author }}">
+
+  <!-- Site Info -->
+  {% block robots %}<meta name="robots" content="index, follow" />{% endblock %}
+  <meta name="author" content="{{ resource.meta.author }}" />
+  <meta name="keywords" content="{{ resource.meta.keywords }}" />
+  <meta name="language" content="en-us" />
+
+  <!-- Microformat Profiles -->
+  <!-- hCard, hCalendar, rel-license, rel-tag, XOXO, XFN, VoteLinks -->
+  <link rel="profile" href="http://microformats.org/profile/specs/" />
+
+  <!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame -->
+  <meta http-equiv="cleartype" content="on">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge;chrome=1" />
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+  <!--iOS. Delete if not required -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+
+  <!-- favicon.ico -->
+  <link rel="shortcut icon" href="{{ media_url('images/favicons/favicon.ico') }}" />
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{ media_url('/images/favicons/apple-touch-icon-114x114-precomposed.png') }}">
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{ media_url('/images/favicons/apple-touch-icon-72x72-precomposed.png') }}">
+  <link rel="apple-touch-icon-precomposed" href="{{ media_url('/images/favicons/apple-touch-icon-precomposed.png') }}">
+
+  <!-- Styles -->
+  {% block css %}
+  <link rel="stylesheet" href="{{ media_url('css/screen.css') }}">
+  {% endblock css %}
+
+  <!-- Modernizr -->
+  {% block headjs %}
+  <script src="{{ media_url('js/plugins/modernizr.js') }}"></script>
+  <script src="{{ media_url('js/plugins/modernizr.selectors.js') }}"></script>
+  {% endblock headjs %}
+
+  <!-- Page-Specific Head -->
+  {% block extrahead %}{% endblock %}
+</head>
+<body id="megnsumner-com">
+
+  <!-- MAIN CONTENT -->
+  <!-- --------------------------------------------------- -->
+  {% block content %}
+  <header role="banner" class="vcard">
+    <h1 class="fn">
+      <a href="http://{{ resource.meta.url }}" class="url" rel="home">{{ resource.meta.author }}</a>
+    </h1>
+    <h2 class="title">{{ resource.meta.tagline }}</h2>
+    <ul class="contact">
+      <li class="email">{{ resource.meta.email }}</li>
+      <li><a href="#bio" class="biolink">bio</a></li>
+    </ul>
+  </header>
+
+  <section role="main">
+    {% filter markdown -%}
+    {%- block main -%}
+    {%- endblock main -%}
+    {%- endfilter %}
+  </section>
+
+  <article id="bio">
+    {% filter markdown -%}
+    {%- include "_bio.j2" -%}
+    {%- endfilter %}
+  </article>
+  {% endblock content%}
+  <!-- --------------------------------------------------- -->
+
+  {% block scripts %}
+  <script src="{{ media_url('js/jquery-1.7.2.js') }}"></script>
+  <script src="{{ media_url('js/defuscator.js') }}"></script>
+  <script src="{{ media_url('js/plugins/viewport.js') }}"></script>
+  <script src="{{ media_url('js/local.js') }}"></script>
+  {% endblock scripts %}
+
+  {% block analytics %}
+  {% include "_analytics.j2" %}
+  {% endblock analytics %}
+
+</body>
+</html>

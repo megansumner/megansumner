@@ -1,0 +1,7 @@
+// ----------------------------------------------------------------------------
+// Layout
+
+body {
+  @include container;
+  @include baseline-grid-background;
+}

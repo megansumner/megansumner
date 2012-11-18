@@ -1,0 +1,66 @@
+// ----------------------------------------------------------------------------
+// Links
+
+a {
+  &:hover, &:active {
+    outline: none;
+  }
+  #{$link} {
+    color: $alt;
+    text-decoration: none;
+  }
+  #{$focus} {
+    color: $accent;
+  }
+}
+
+// ----------------------------------------------------------------------------
+// Typography
+
+%type {
+
+  // -------
+  // Headers
+
+  h1 {
+    @include adjust-font-size-to($xlargepx);
+    @include at-breakpoint($total-columns) { @include adjust-font-size-to($xxlargepx); }
+    a {
+      #{$link} { color: $blue-dark; }
+      #{$focus} { color: $pink-dark; }
+    }
+  }
+
+  h2 {
+    @include adjust-font-size-to($largepx);
+    @include at-breakpoint($total-columns) { @include adjust-font-size-to($xlargepx); }
+  }
+
+  h3 {
+    @include trailer;
+    text-transform: uppercase;
+    letter-spacing: .01em;
+  }
+
+  // ------
+  // Blocks
+
+  h4, strong { font-weight: bold; }
+  h5, h6, em, blockquote { font-style: italic; }
+
+  p, ul, ol, pre, blockquote { @include trailer; }
+  p:empty { display: none; }
+  ul { list-style-type: disc; }
+  ol { list-style-type: decimal; }
+
+  blockquote {
+    @include rem(padding, 0 rhythm(.751));
+    @include rem(border-left, rhythm(.25) solid $lighter);
+    em { font-style: normal; }
+  }
+
+  ul, ol, blockquote {
+    ul, ol { @include rem(margin-left, rhythm(1)); }
+  }
+
+}
