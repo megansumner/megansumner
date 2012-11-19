@@ -1,7 +1,21 @@
 // ----------------------------------------------------------------------------
 // Styleguides
 
+$megan: 30%;
+
 body {
   @extend %type;
   @include leader;
+  max-width: container-outer-width();
+  margin-left: $megan;
+  &:before {
+    @include background(image-url('megan.png') no-repeat center 1em);
+    @include background-size(80% auto);
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    content: " ";
+    width: $megan;
+  }
 }
