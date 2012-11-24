@@ -1,0 +1,38 @@
+// ----------------------------------------------------------------------------
+// imports
+
+@import "../base/settings";
+
+// ----------------------------------------------------------------------------
+// fonts
+
+$susyregular      : GreenMudSusy    'greenmudsusy-regular-webfont'             normal  normal;
+$susybold         : GreenMudSusy    'greenmudsusy-bold-webfont'                bold    normal;
+$susysc           : GreenMudSusySC  'greenmudsusy-smallcaps-webfont'           normal  normal;
+$susyscbold       : GreenMudSusySC  'greenmudsusy-smallcapsbold-webfont'       bold    normal;
+
+@mixin font($font) {
+  $name: nth($font,1);
+  $location: nth($font,2);
+  $weight: if(nth($font,3), nth($font,3), normal);
+  $style: if(nth($font,4), nth($font,4), normal);
+  @include font-face(
+    $name,
+    font-files(
+      '#{$location}.woff', 'woff',
+      '#{$location}.ttf', 'truetype',
+      '#{$location}.svg##{$name}', 'svg'
+    ),
+    '#{$location}.eot',
+    $weight,
+    $style
+  );
+}
+
+$susy: $susyregular $susybold $susysc $susyscbold;
+@each $font in $susy { @include font($font); }
+
+$susy-reg: nth($susyregular,1);
+$susy-sc: nth($susysc,1);
+
+$susy-stack: Comic Sans MS, sans-serif;
