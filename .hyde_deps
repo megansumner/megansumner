@@ -1,5 +1,6 @@
-!!python/unicode 'CNAME': []
-!!python/unicode 'index.html': [_bio.j2, _analytics.j2, base.j2]
+!!python/unicode 'CNAME': [blank.j2]
+!!python/unicode 'about.html': [_analytics.j2, base.j2]
+!!python/unicode 'index.html': [_analytics.j2, base.j2]
 !!python/unicode 'media/css/screen.css': []
 !!python/unicode 'media/js/defuscator.js': []
 !!python/unicode 'media/js/dist/minified.js': []

@@ -5,7 +5,12 @@
   <meta charset="utf-8">
 
   <!-- Page Info -->
-  <title>{% block title %}{{ resource.meta.title }}{% endblock %}</title>
+  <title>
+    {%- block title -%}
+    {{ resource.meta.title }}
+    {%- if resource.meta.subtitle -%}: {{ resource.meta.subtitle }}{%- endif -%}
+    {%- endblock -%}
+  </title>
   <meta name="description" content="{{ resource.meta.description }}">
   <meta name="author" content="{{ resource.meta.author }}">
 
@@ -59,12 +64,12 @@
   {% block content %}
   <header role="banner" class="vcard">
     <h1 class="fn">
-      <a href="http://{{ resource.meta.url }}" class="url" rel="home">{{ resource.meta.author }}</a>
+      <a href="/" rel="home">{{ resource.meta.author }}</a>
     </h1>
     <h2 class="title">{{ resource.meta.tagline }}</h2>
     <ul class="contact">
-      <li class="email">{{ resource.meta.email }}</li>
-      <li><a href="#bio" class="biolink">bio</a></li>
+      <li><a href="mailto:{{ resource.meta.email }}" class="email">contact</a></li>
+      <li><a href="/about.html" class="biolink">about</a></li>
     </ul>
   </header>
 
@@ -75,11 +80,14 @@
     {%- endfilter %}
   </section>
 
-  <article id="bio">
-    {% filter markdown -%}
-    {%- include "_bio.j2" -%}
-    {%- endfilter %}
-  </article>
+  <footer class="contentinfo">
+    <p class="copyright">
+      Copyright &copy; {{ resource.meta.copyright.year }} <strong>{{ resource.meta.author }}</strong>
+      {% if resource.meta.copyright.note %}
+        <span class="note">{{ resource.meta.copyright.note }}</span>
+      {% endif %}
+    </p>
+  </footer>
   {% endblock content%}
   <!-- --------------------------------------------------- -->
 

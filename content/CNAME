@@ -1,1 +1,6 @@
+---
+extends: blank.j2
+default_block: main
+---
+
 megansumner.com
