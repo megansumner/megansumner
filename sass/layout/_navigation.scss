@@ -9,7 +9,11 @@
   border-color: $border-color-fallback;
   border-color: $border-color;
 
-  ul { @include inline-block-list; }
+  ul {
+    @include inline-block-list;
+    overflow: visible;
+  }
+
   a {
     @extend %icon;
     display: block;
@@ -18,7 +22,9 @@
       @include adjust-font-size-to($xxsmallpx);
       vertical-align: middle;
     }
+    #{$focus} { @include transform(scale(1.25) rotate(-6deg)); }
   }
+  [rel="home"] { @extend %icon-home; }
   [href*="mailto"] { @extend %icon-mail; }
   [href*="about"] { @extend %icon-user; }
 }

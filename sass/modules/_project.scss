@@ -1,0 +1,25 @@
+// ----------------------------------------------------------------------------
+// project
+
+figure {
+  @include rem(padding, rhythm(.25));
+  @include trailer(.25);
+  overflow: hidden;
+  border: 1px solid $lighter;
+
+  img { width: 100%; }
+  blockquote {
+    @include adjust-font-size-to($xxxlargepx,1.5);
+    @include transform(scale(1.5) rotate(-8deg));
+    font-family: sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  @include breakpoint(20em) {
+    @include span-columns(2);
+    @include trailer;
+    ~ p { overflow: hidden; }
+    ~ h3 { clear: both; }
+  }
+}

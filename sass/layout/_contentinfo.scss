@@ -3,7 +3,7 @@
 
 [role="contentinfo"] {
   @extend %bleed;
-  @include leader(2);
+  @include leader;
   @include leading-border($border-width,.25);
   @include smallcaps;
   border-color: $border-color-fallback;

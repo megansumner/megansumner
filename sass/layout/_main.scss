@@ -1,4 +1,7 @@
 // ----------------------------------------------------------------------------
 // container
 
-[role="main"] { @extend %type; }
+[role="main"] {
+  @extend %type;
+  @include pie-clearfix;
+}

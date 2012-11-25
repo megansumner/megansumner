@@ -3,8 +3,7 @@
 
 [role="banner"] {
   h1 {
-    @include adjust-font-size-to($xlargepx);
-    @include at-breakpoint($total-columns) { @include adjust-font-size-to($xxlargepx); }
+    @include adjust-font-size-to($xxlargepx);
     a {
       #{$link} { color: $blue-darker; }
       #{$focus} { color: $pink-darker; }
