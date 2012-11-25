@@ -57,7 +57,7 @@
   <!-- Page-Specific Head -->
   {% block extrahead %}{% endblock %}
 </head>
-<body id="megnsumner-com">
+<body id="megansumner-com">
 
   <!-- MAIN CONTENT -->
   <!-- --------------------------------------------------- -->
@@ -67,11 +67,14 @@
       <a href="/" rel="home">{{ resource.meta.author }}</a>
     </h1>
     <h2 class="title">{{ resource.meta.tagline }}</h2>
-    <ul class="contact">
+  </header>
+
+  <nav role="navigation">
+    <ul>
       <li><a href="mailto:{{ resource.meta.email }}" class="email">contact</a></li>
       <li><a href="/about.html" class="biolink">about</a></li>
     </ul>
-  </header>
+  </nav>
 
   <section role="main">
     {% filter markdown -%}
@@ -80,7 +83,7 @@
     {%- endfilter %}
   </section>
 
-  <footer class="contentinfo">
+  <footer role="contentinfo">
     <p class="copyright">
       Copyright &copy; {{ resource.meta.copyright.year }} <strong>{{ resource.meta.author }}</strong>
       {% if resource.meta.copyright.note %}

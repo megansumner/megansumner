@@ -1,0 +1,14 @@
+// ----------------------------------------------------------------------------
+// container
+
+[role="contentinfo"] {
+  @extend %bleed;
+  @include leader(2);
+  @include leading-border($border-width,.25);
+  @include smallcaps;
+  border-color: $border-color-fallback;
+  border-color: $border-color;
+  text-transform: lowercase;
+  strong { font-weight: bold; }
+  .note:before { content: " » "; }
+}

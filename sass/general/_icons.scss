@@ -1,11 +1,11 @@
 @include font-face (
   'IcoMoon',
   font-files(
-    'Icons.svg#Icons', svg,
-    'Icons.woff', woff,
-    'Icons.ttf', truetype
+    'megan.svg#megan', svg,
+    'megan.woff', woff,
+    'megan.ttf', truetype
   ),
-  'Icons.eot',
+  'megan.eot',
   normal,
   normal
 );
@@ -19,6 +19,8 @@
 
 %icon:before {
   @extend %icon-content;
+  margin-left: .1em;
+  margin-right: .25em;
 }
 
 %icon-replace {
@@ -39,3 +41,6 @@
   @extend %icon-content;
   content: attr(data-icon);
 }
+
+%icon-mail:before { content: "\e000"; }
+%icon-user:before { content: "\e001"; }

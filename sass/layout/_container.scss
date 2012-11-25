@@ -1,0 +1,34 @@
+// ----------------------------------------------------------------------------
+// container
+
+$megan: 30%;
+$vpadding: rhythm(.5);
+$transition: 400ms;
+
+$border-width: 2px;
+$border-color: rgba($light,.25);
+$border-color-fallback: $lighter;
+
+html { overflow-x: hidden; }
+
+body {
+  @include transition(margin $transition);
+  max-width: container-outer-width();
+  padding: $vpadding $grid-padding;
+  &:before {
+    @include transition(left $transition);
+    @include background(image-url('megan.png') no-repeat center $vpadding);
+    @include background-size(100% auto);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: - $megan - 2;
+    content: " ";
+    width: $megan - 2;
+  }
+
+  @include at-breakpoint($total-columns) {
+    margin-left: $megan;
+    &:before { left: $grid-padding; }
+  }
+}

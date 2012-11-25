@@ -1,0 +1,24 @@
+// ----------------------------------------------------------------------------
+// container
+
+[role="navigation"] {
+  @extend %bleed;
+  @include rhythm-margins(.5, 1);
+  @include h-borders($border-width,.25);
+  @include smallcaps;
+  border-color: $border-color-fallback;
+  border-color: $border-color;
+
+  ul { @include inline-block-list; }
+  a {
+    @extend %icon;
+    display: block;
+    margin-right: .5em;
+    &:before {
+      @include adjust-font-size-to($xxsmallpx);
+      vertical-align: middle;
+    }
+  }
+  [href*="mailto"] { @extend %icon-mail; }
+  [href*="about"] { @extend %icon-user; }
+}

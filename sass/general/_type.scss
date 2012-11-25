@@ -22,15 +22,6 @@ a {
   // -------
   // Headers
 
-  h1 {
-    @include adjust-font-size-to($xlargepx);
-    @include at-breakpoint($total-columns) { @include adjust-font-size-to($xxlargepx); }
-    a {
-      #{$link} { color: $blue-darker; }
-      #{$focus} { color: $pink-darker; }
-    }
-  }
-
   h2 {
     @include adjust-font-size-to($largepx);
     @include at-breakpoint($total-columns) { @include adjust-font-size-to($xlargepx); }
@@ -46,20 +37,14 @@ a {
   // Blocks
 
   h4, strong { font-weight: bold; }
-  h5, h6, em, blockquote { font-style: italic; }
+  em { @include smallcaps; }
 
   p, ul, ol, pre, blockquote { @include trailer; }
   p:empty { display: none; }
   ul { list-style-type: disc; }
   ol { list-style-type: decimal; }
 
-  blockquote {
-    @include rem(padding, 0 rhythm(.751));
-    @include rem(border-left, rhythm(.25) solid $lighter);
-    em { font-style: normal; }
-  }
-
-  ul, ol, blockquote {
+  ul, ol {
     ul, ol { @include rem(margin-left, rhythm(1)); }
   }
 

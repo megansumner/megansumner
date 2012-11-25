@@ -36,3 +36,6 @@ $susy-reg: nth($susyregular,1);
 $susy-sc: nth($susysc,1);
 
 $susy-stack: Comic Sans MS, sans-serif;
+
+@mixin susy { font-family: $susy-reg, $susy-stack; }
+@mixin smallcaps { font-family: $susy-sc, $susy-stack; }

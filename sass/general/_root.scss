@@ -10,7 +10,7 @@
 @include establish-baseline;
 
 html {
-  font-family: $susy-reg, $susy-stack;
+  @include susy;
   color: $base;
   color: rgba($base,.8);
   background: image-url('creampaper.png') repeat fixed;
