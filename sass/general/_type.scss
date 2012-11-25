@@ -24,11 +24,11 @@ a {
 
   h2 {
     @include adjust-font-size-to($largepx);
+    @include trailer(.5);
     @include at-breakpoint($total-columns) { @include adjust-font-size-to($xlargepx); }
   }
 
   h3 {
-    @include trailer;
     text-transform: uppercase;
     letter-spacing: .01em;
   }
